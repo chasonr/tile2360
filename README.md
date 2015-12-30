@@ -16,7 +16,11 @@ New tiles are created as follows:
 * The tile for the darkened portion of a floor is created by halving the luminance of the existing floor tile.
 
 * Eight other tiles are filled in with a placeholder, which appears as a solid red tile with a black X through it. This is for use by tileset authors, who can then fill in the missing tiles. The missing tiles are, in order:
-** glob of gray ooze, brown pudding, green slime and black pudding, in that order; this is a block of four missing tiles appearing after the meat ring
-** novel -- this is a single missing tile appearing after all the spellbooks except the Book of the Dead
-** The vibrating square -- this is a single missing tile appearing after all the traps
-** Poison cloud and valid position -- these are two missing tiles appearing after the sparkles
+
+  * glob of gray ooze, brown pudding, green slime and black pudding, in that order; this is a block of four missing tiles appearing after the meat ring
+
+  * novel -- this is a single missing tile appearing after all the spellbooks except the Book of the Dead
+
+  * The vibrating square -- this is a single missing tile appearing after all the traps
+
+  * Poison cloud and valid position -- these are two missing tiles appearing after the sparkles
