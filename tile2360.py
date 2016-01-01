@@ -61,7 +61,37 @@ class Bitmap(object):
         if magic != "BM":
             raise RuntimeError, "%s is not in .BMP format" % inpname
 
-        if self.header_size != 40:
+        self.color_space_endpoints = [ None ] * 9
+        if self.header_size == 40:
+            self.red_mask = None
+            self.green_mask = None
+            self.blue_mask = None
+            self.alpha_mask = None
+            self.color_space = None
+            self.red_gamma = None
+            self.green_gamma = None
+            self.blue_gamma = None
+        elif self.header_size == 108:
+            header2 = fp.read(self.header_size - 40)
+            (self.red_mask,
+             self.green_mask,
+             self.blue_mask,
+             self.alpha_mask,
+             self.color_space,
+             self.color_space_endpoints[0],
+             self.color_space_endpoints[1],
+             self.color_space_endpoints[2],
+             self.color_space_endpoints[3],
+             self.color_space_endpoints[4],
+             self.color_space_endpoints[5],
+             self.color_space_endpoints[6],
+             self.color_space_endpoints[7],
+             self.color_space_endpoints[8],
+             self.red_gamma,
+             self.green_gamma,
+             self.blue_gamma) = struct.unpack("<4L4s12L", header2);
+            # TODO: decode per the bit masks
+        else:
             raise RuntimeError, "%s has an unsupported header type (%d)" % \
                     (inpname, self.header_size)
 
