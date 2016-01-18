@@ -568,7 +568,7 @@ class Bitmap(object):
                 self.num_planes,
                 self.bits_per_pixel,
                 self.compression,
-                self.image_size,
+                0, #self.image_size,
                 self.horiz_res,
                 self.vert_res,
                 self.num_colors,
